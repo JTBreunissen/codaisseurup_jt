@@ -1,0 +1,47 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><h2><%= @event.name %></div></h2>
+
+  <div class="panel-body">
+
+    <h4>Name: <%= @event.name %></h4>
+    <p>From: <%= @event.starts_at %></p>
+    <p>To: <%= @event.ends_at %></p>
+    <hr>
+    <!-- Main Info -->
+    <h4>Event Details</h4>
+    <p>Price: <%= @event.price %></p>
+    <p><%= @event.capacity %> <%= @event.capacity > 1 ? "Visitors" : "Visitor" %></p>
+    <p>From: <%= @event.starts_at %></p>
+    <p>To: <%= @event.ends_at %></p>
+    <hr>
+    <!-- About -->
+    <h4>About</h4>
+    <p><%= @event.description %></p>
+    <hr>
+    <!-- Amenities -->
+    <h4>Amenities</h4>
+    <ul class="amenities">
+      <li><%= !@event.includes_food ? ("<del>Food</del>").html_safe : "Food" %></li>
+      <li><%= !@event.includes_drinks ? ("<del>Drinks</del>").html_safe : "Drinks" %></li>
+    </ul>
+    <hr>
+
+    <h4>Photos</h4>
+    <% @event.photos.each do |photo| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= image_tag photo.image.thumbnail %>
+      </div>
+    </div>
+    <% end %>
+
+    <h4>Categories</h4>
+    <% @categories.each do |theme| %>
+    <span class="label label-info"><%= theme.name %></span>
+    <% end %>
+
+  </div>
+
+</div>
+
+<%= link_to "Back", events_path, class: "btn btn-default" %>

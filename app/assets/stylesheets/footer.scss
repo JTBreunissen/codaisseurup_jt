@@ -1,0 +1,58 @@
+html {
+  position: relative;
+  min-height: 100%;
+
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  line-height: 50px; /* Vertically center the text there */
+  background-color: #FFBF00;
+  border-top: 1px solid;
+  font-color: white;
+}
+
+.navbar-default {
+    background-color: #FFBF00;
+    border-color: #E7E7E7;
+    border-bottom: 1px solid;
+  }
+
+.jumbotron {
+    background-color: #FFBF00;
+
+  }
+
+.btn-default {
+    background-color: #247BA0;
+    color: #FFFFFF;
+  }
+
+.btn-primary {
+    background-color: #247BA0;
+  }
+
+.carousel-inner {
+  align-self: center;
+}
+
+.carousel {
+  max-width: 1140px;
+
+
+}
+
+.item {
+  max-width: 1140px;
+  max-height: 361px;
+
+}

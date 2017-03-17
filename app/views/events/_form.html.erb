@@ -1,0 +1,87 @@
+<%= form_for @event, html: { multipart: true } do |f| %>
+
+  <% @event.errors.full_messages.each do |msg| %>
+    <p class="alert alert-danger" role="alert"><%= msg %></p>
+  <% end %>
+
+  <div class="form-group">
+    <label>Event Name</label>
+    <%= f.text_field :name, placeholder: "Name of your event", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+   <label>Description</label>
+   <%= f.text_area :description, rows: 5, placeholder: "Description of your event", class: "form-control" %>
+ </div>
+
+ <div class="form-group">
+    <label>Address</label>
+    <%= f.text_field :location, placeholder: "Location of event", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Admission Price</label>
+    <div class="input-group">
+      <div class="input-group-addon">€</div>
+      <%= f.number_field :price, placeholder: "state your event admission price", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Capacity</label>
+    <div class="input-group">
+      <%= f.number_field :capacity, placeholder: "maximum visitors", class: "form-control" %>
+    </div>
+  </div>
+  <hr>
+  <label>Date</label>
+
+  <div class="form-group">
+    <label>Start date</label>
+    <%= f.datetime_select :starts_at %>
+  </div>
+
+  <div class="form-group">
+    <label>End date</label>
+    <%= f.datetime_select :ends_at %>
+  </div>
+  <hr>
+  <label>Amenities</label>
+  <div class="form-group">
+    <%= f.check_box :includes_food %> Food
+  </div>
+  <div class="form-group">
+    <%= f.check_box :includes_drinks %> Drinks
+  </div>
+  <hr>
+  <label>Categories</label>
+
+  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+    <div class="form-group">
+      <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+    </div>
+  <% end %>
+  <hr>
+  <label>Photos</label>
+
+  <div class="form-group">
+    <span class="btn btn-default">
+      Upload Photos
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </span>
+  </div>
+  <hr>
+  <div id="photos">
+  <%= render 'photos/list' %>
+  </div>
+  <hr>
+  <label>Publish this event?</label>
+
+ <div class="form-group">
+   <%= f.check_box :active %> Active
+ </div>
+
+ <div class="actions">
+   <%= f.submit "Save", class: "btn btn-primary" %>
+ </div>
+<% end %>
