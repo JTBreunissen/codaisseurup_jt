@@ -76,4 +76,14 @@ RSpec.describe Event, type: :model do
       expect(event.guests).to include(guest_user)
     end
   end
+
+  describe "available_during" do
+    let(:event1) { create :event, starts_at: 10.days.from_now, ends_at: 15.days.from_now}
+    let(:event2) { create :event, starts_at: 20.days.from_now, ends_at: 25.days.from_now}
+
+    arrival = 10.days.from_now
+    departure = 15.days.from_now
+
+
+  end
 end

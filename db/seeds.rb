@@ -1,3 +1,5 @@
+require 'faker'
+
 Photo.delete_all
 Registration.delete_all
 Category.delete_all

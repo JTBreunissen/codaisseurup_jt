@@ -11,4 +11,14 @@ class Registration < ApplicationRecord
   def set_total_price
     self.price = event.price * guests_count
   end
+
+  def self.starts_before_ends_after(arrival, departure)
+
+  end
+
+  def self.starts_during(arrival, departure)
+  end
+
+  def self.ends_during(arrival, departure)
+  end
 end
